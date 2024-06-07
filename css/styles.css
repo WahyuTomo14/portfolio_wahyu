@@ -5,27 +5,25 @@ body {
 }
 
 header {
-    padding: 40px 20px 20px; /* Add padding at the top */
-    margin-bottom: 40px; /* Add margin to the bottom to separate header from content */
-    text-align: left;
+    padding: 20px; /* Add padding around the header */
+    background-color: #f8f9fa; /* Light background color */
+    border-bottom: 1px solid #e9ecef; /* Light border at the bottom */
 }
 
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1200px; /* Maximum width for the header content */
+    margin: 0 auto; /* Center the header content */
 }
 
-header h1 {
+header .site-title {
     margin: 0;
-    flex: 1;
+    font-weight: bold;
 }
 
-header p {
-    margin: 0 0 20px 0; /* Add margin at the bottom for spacing */
-}
-
-header .github-link {
+.nav-links a {
     text-decoration: none;
     color: black;
     font-size: 1em;
@@ -36,12 +34,14 @@ header .github-link {
     transition: background-color 0.3s;
 }
 
-header .github-link:hover {
+.nav-links a:hover {
     background-color: #e0e0e0;
 }
 
 main {
     padding: 0 20px;
+    max-width: 1200px; /* Maximum width for the main content */
+    margin: 0 auto; /* Center the main content */
 }
 
 .portfolio {
