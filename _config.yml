@@ -1,5 +1,5 @@
 title: Fikri Majid's Portfolio
 description: A simple portfolio site
-baseurl: "/portfolio" # adjust if your site is under a subpath
-url: "https://sunny-smiles.github.io" # replace with your GitHub Pages URL
+baseurl: "/portfolio"
+url: "https://sunny-smiles.github.io"
 theme: minima
