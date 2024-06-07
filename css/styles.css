@@ -5,8 +5,25 @@ body {
 }
 
 header {
-    text-align: center;
-    margin: 20px 0;
+    padding: 40px 20px 20px; /* Add padding at the top */
+    margin-bottom: 40px; /* Add margin to the bottom to separate header from content */
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 0 0 20px 0; /* Add margin at the bottom for spacing */
+}
+
+header .github-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    margin-top: 10px;
+    display: inline-block;
 }
 
 main {
@@ -16,7 +33,7 @@ main {
 .portfolio {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the left */
 }
 
 .item {
