@@ -63,7 +63,9 @@ main {
 .item img {
     max-width: 100%;
     height: auto;
+    max-height: 100px;
 }
+
 
 .item h2 {
     font-size: 1.2em;
