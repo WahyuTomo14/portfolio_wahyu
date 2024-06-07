@@ -5,9 +5,9 @@ body {
 }
 
 header {
-    padding: 20px 20px; /* Add padding at the top */
-    background-color: #f8f9fa; /* Light background color */
-    border-bottom: 1px solid #e9ecef; /* Light border at the bottom */
+    padding: 40px 20px 20px; /* Add padding at the top */
+    margin-bottom: 40px; /* Add margin to the bottom to separate header from content */
+    text-align: left;
 }
 
 .header-content {
@@ -16,12 +16,16 @@ header {
     justify-content: space-between;
 }
 
-header .site-title {
+header h1 {
     margin: 0;
-    font-weight: bold;
+    flex: 1;
 }
 
-.nav-links a {
+header p {
+    margin: 0 0 20px 0; /* Add margin at the bottom for spacing */
+}
+
+header .github-link {
     text-decoration: none;
     color: black;
     font-size: 1em;
@@ -32,7 +36,7 @@ header .site-title {
     transition: background-color 0.3s;
 }
 
-.nav-links a:hover {
+header .github-link:hover {
     background-color: #e0e0e0;
 }
 
