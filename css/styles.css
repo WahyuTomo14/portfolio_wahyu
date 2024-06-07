@@ -1,17 +1,32 @@
 body {
     font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+main {
+    padding: 0 20px;
 }
 
 .portfolio {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .item {
     width: 22%;
     margin: 1%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    padding: 20px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .item img {
@@ -27,6 +42,11 @@ body {
 .item p {
     font-size: 0.9em;
     color: #666;
+}
+
+.item a {
+    text-decoration: none;
+    color: black;
 }
 
 .scroll-to-top {
