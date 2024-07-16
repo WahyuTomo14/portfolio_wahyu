@@ -161,29 +161,47 @@ a:hover {
 
 /* carousel */
 .carousel-container {
+    display: flex;
     overflow: hidden;
-    width: 100%;
-    white-space: nowrap;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
 .carousel-slide {
-    display: inline-block;
-    scroll-snap-align: start;
+    display: none;
     max-width: 100%;
     height: auto;
-    overflow: hidden;
-    text-align: center;
-    white-space: normal;
+}
+
+.carousel-slide.active {
+    display: block;
 }
 
 .carousel-slide img {
     max-width: 100%;
     height: auto;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
 }
 
-.carousel-item img {
-    object-fit: cover;
-    height: 500px;
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel-controls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.carousel-controls button:hover {
+    background-color: #0056b3;
 }
