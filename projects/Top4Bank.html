@@ -34,7 +34,17 @@ permalink: /projects/top-4-indonesian-bank/
 
 </ul>
 
-<p>You can view the analysis in this <a href="https://drive.google.com/file/d/1JdXFXiD_k0sXrvUdN6N4qvkNyEGXKCKH/view?usp=drive_link">Deck</a>.</p>
+<div class="carousel-container" id="carousel">
+    {% for i in (1..35) %}
+    <div class="carousel-slide">
+        <img src="{{ '/images/bankcarousel/Slide' | append: i | append: '.PNG' | relative_url }}" alt="Slide {{ i }}">
+    </div>
+    {% endfor %}
+</div>
+<div class="carousel-controls">
+    <button id="prevBtn" onclick="scrollCarousel(-1)">Prev</button>
+    <button id="nextBtn" onclick="scrollCarousel(1)">Next</button>
+</div>
 
 <h1>Top 4 Indonesian Bank Analysis Interactive Dashboard</h1>
 
@@ -70,3 +80,43 @@ In the interactive dashboard, I used several features including:
 <p>The following link directs you to the interactive Looker Dashboard where you can explore the visualizations and insights derived from the data: <a href="https://lookerstudio.google.com/reporting/551d2105-ac34-444c-8f48-68630e5df783" target="_blank">Looker Dashboard</a><br></p>
 
 <a href="{{ '/' | relative_url }}">Back to portfolio</a>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JS for Carousel -->
+<script>
+const carousel = document.getElementById('carousel');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function scrollCarousel(direction) {
+    const slideWidth = carousel.querySelector('.carousel-slide').offsetWidth;
+    carousel.scrollBy({ left: direction * slideWidth, behavior: 'smooth' });
+}
+
+// Optionally disable buttons when at the ends
+carousel.addEventListener('scroll', () => {
+    if (carousel.scrollLeft === 0) {
+        prevBtn.disabled = true;
+    } else {
+        prevBtn.disabled = false;
+    }
+
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+        nextBtn.disabled = true;
+    } else {
+        nextBtn.disabled = false;
+    }
+});
+
+// Initialize button states
+if (carousel.scrollLeft === 0) {
+    prevBtn.disabled = true;
+}
+if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+    nextBtn.disabled = true;
+}
+</script>
