@@ -92,31 +92,59 @@ const carousel = document.getElementById('carousel');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
+let currentIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+
 function scrollCarousel(direction) {
-    const slideWidth = carousel.querySelector('.carousel-slide').offsetWidth;
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    const slideWidth = slides[currentIndex].offsetWidth;
     carousel.scrollBy({ left: direction * slideWidth, behavior: 'smooth' });
 }
 
-// Optionally disable buttons when at the ends
+// Disable buttons when at the ends
 carousel.addEventListener('scroll', () => {
-    if (carousel.scrollLeft === 0) {
-        prevBtn.disabled = true;
-    } else {
-        prevBtn.disabled = false;
-    }
-
-    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-        nextBtn.disabled = true;
-    } else {
-        nextBtn.disabled = false;
-    }
+    prevBtn.disabled = carousel.scrollLeft === 0;
+    nextBtn.disabled = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth;
 });
 
 // Initialize button states
-if (carousel.scrollLeft === 0) {
-    prevBtn.disabled = true;
+prevBtn.disabled = true; // Initially, Prev button is disabled since we're at the start
+
+// Ensure smooth scrolling on touch devices
+let xDown = null;
+let yDown = null;
+
+function handleTouchStart(evt) {
+    const firstTouch = evt.touches[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
 }
-if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-    nextBtn.disabled = true;
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    let xUp = evt.touches[0].clientX;
+    let yUp = evt.touches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+            scrollCarousel(1); // Swiped left
+        } else {
+            scrollCarousel(-1); // Swiped right
+        }
+    }
+
+    // Reset values
+    xDown = null;
+    yDown = null;
 }
+
+carousel.addEventListener('touchstart', handleTouchStart, false);
+carousel.addEventListener('touchmove', handleTouchMove, false);
 </script>
