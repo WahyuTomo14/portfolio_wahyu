@@ -161,12 +161,13 @@ a:hover {
 
 /* carousel */
 .carousel-container {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+    overflow: hidden;
+    width: 100%; /* Adjust this width as needed */
 }
 
 .carousel-slide {
+    display: inline-block;
+    scroll-snap-align: start;
     max-width: 100%;
     height: auto;
     overflow: hidden;
@@ -176,23 +177,5 @@ a:hover {
 .carousel-slide img {
     max-width: 100%;
     height: auto;
-    display: inline-block;
-}
-
-.carousel-controls {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.carousel-controls button {
-    background-color: #0073b1;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.carousel-controls button:disabled {
-    background-color: #ccc;
+    display: block; /* Use block display to prevent inline spacing issues */
 }
