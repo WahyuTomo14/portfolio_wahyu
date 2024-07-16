@@ -162,22 +162,24 @@ a:hover {
 /* carousel */
 .carousel-container {
     overflow: hidden;
-    width: 100%; /* Adjust this width as needed */
-    white-space: nowrap; /* Ensure slides stay in one line */
+    width: 100%;
 }
 
 .carousel-slide {
-    display: inline-block;
-    scroll-snap-align: start;
-    max-width: 100%;
-    height: auto;
-    overflow: hidden;
+    display: none;
     text-align: center;
-    white-space: normal; /* Allow content to wrap within slides */
 }
 
 .carousel-slide img {
     max-width: 100%;
     height: auto;
-    display: block; /* Use block display to prevent inline spacing issues */
+}
+
+.carousel-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-controls button {
+    margin: 0 5px;
 }
