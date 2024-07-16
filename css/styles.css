@@ -163,23 +163,27 @@ a:hover {
 .carousel-container {
     overflow: hidden;
     width: 100%;
+    white-space: nowrap;
+    position: relative;
 }
 
 .carousel-slide {
-    display: none;
+    display: inline-block;
+    scroll-snap-align: start;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
     text-align: center;
+    white-space: normal;
 }
 
 .carousel-slide img {
     max-width: 100%;
     height: auto;
+    display: inline-block;
 }
 
-.carousel-controls {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.carousel-controls button {
-    margin: 0 5px;
+.carousel-item img {
+    object-fit: cover;
+    height: 500px;
 }
