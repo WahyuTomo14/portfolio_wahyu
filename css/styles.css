@@ -163,6 +163,7 @@ a:hover {
 .carousel-container {
     overflow: hidden;
     width: 100%; /* Adjust this width as needed */
+    white-space: nowrap; /* Ensure slides stay in one line */
 }
 
 .carousel-slide {
@@ -172,6 +173,7 @@ a:hover {
     height: auto;
     overflow: hidden;
     text-align: center;
+    white-space: normal; /* Allow content to wrap within slides */
 }
 
 .carousel-slide img {
