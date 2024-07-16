@@ -97,9 +97,12 @@ In the interactive dashboard, I used several features including:
     const totalSlides = slides.length;
     
     function scrollCarousel(direction) {
+        const slideWidth = carousel.clientWidth; // Use carousel width for consistent slide scrolling
         currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-        const slideWidth = slides[currentIndex].offsetWidth;
-        carousel.scrollBy({ left: direction * slideWidth, behavior: 'smooth' });
+        carousel.scrollTo({
+            left: currentIndex * slideWidth,
+            behavior: 'smooth'
+        });
     }
     
     // Disable buttons when at the ends
